@@ -44,19 +44,68 @@ class CardScreenController extends GetxController {
   Random random = Random();
 
   List<Map<String, dynamic>> listOfCardsAndValues = [
-    {'card': 'A', 'lowValue': '1','highValue':'11'},
-    {'card': '2', 'lowValue': '2','highValue':'2'},
-    {'card': '3', 'lowValue': '3','highValue':'3'},
-    {'card': '4', 'lowValue': '4','highValue':'4'},
-    {'card': '5', 'lowValue': '5','highValue':'5'},
-    {'card': '6', 'lowValue': '6','highValue':'6'},
-    {'card': '7', 'lowValue': '7','highValue':'7'},
-    {'card': '8', 'lowValue': '8','highValue':'8'},
-    {'card': '9', 'lowValue': '9','highValue':'9'},
-    {'card': '10', 'lowValue': '10','highValue':'10'},
-    {'card': 'J', 'lowValue': '0','highValue':'0'},
-    {'card': 'Q', 'lowValue': '0','highValue':'0'},
-    {'card': 'K', 'lowValue': '0','highValue':'0'},
+
+    /// Todo Spade Cards
+    {'card': 'spadesA', 'lowValue': '1','highValue':'11'},
+    {'card': 'spades2', 'lowValue': '2','highValue':'2'},
+    {'card': 'spades3', 'lowValue': '3','highValue':'3'},
+    {'card': 'spades4', 'lowValue': '4','highValue':'4'},
+    {'card': 'spades5', 'lowValue': '5','highValue':'5'},
+    {'card': 'spades6', 'lowValue': '6','highValue':'6'},
+    {'card': 'spades7', 'lowValue': '7','highValue':'7'},
+    {'card': 'spades8', 'lowValue': '8','highValue':'8'},
+    {'card': 'spades9', 'lowValue': '9','highValue':'9'},
+    {'card': 'spades10', 'lowValue': '10','highValue':'10'},
+    {'card': 'spadesJ', 'lowValue': '0','highValue':'0'},
+    {'card': 'spadesQ', 'lowValue': '0','highValue':'0'},
+    {'card': 'spadesK', 'lowValue': '0','highValue':'0'},
+
+    /// Todo Clubs Cards
+    {'card': 'clubsA', 'lowValue': '1','highValue':'11'},
+    {'card': 'clubs2', 'lowValue': '2','highValue':'2'},
+    {'card': 'clubs3', 'lowValue': '3','highValue':'3'},
+    {'card': 'clubs4', 'lowValue': '4','highValue':'4'},
+    {'card': 'clubs5', 'lowValue': '5','highValue':'5'},
+    {'card': 'clubs6', 'lowValue': '6','highValue':'6'},
+    {'card': 'clubs7', 'lowValue': '7','highValue':'7'},
+    {'card': 'clubs8', 'lowValue': '8','highValue':'8'},
+    {'card': 'clubs9', 'lowValue': '9','highValue':'9'},
+    {'card': 'clubs10', 'lowValue': '10','highValue':'10'},
+    {'card': 'clubsJ', 'lowValue': '0','highValue':'0'},
+    {'card': 'clubsQ', 'lowValue': '0','highValue':'0'},
+    {'card': 'clubsK', 'lowValue': '0','highValue':'0'},
+
+    /// Todo Diamonds Cards
+    {'card': 'diamondsA', 'lowValue': '1','highValue':'11'},
+    {'card': 'diamonds2', 'lowValue': '2','highValue':'2'},
+    {'card': 'diamonds3', 'lowValue': '3','highValue':'3'},
+    {'card': 'diamonds4', 'lowValue': '4','highValue':'4'},
+    {'card': 'diamonds5', 'lowValue': '5','highValue':'5'},
+    {'card': 'diamonds6', 'lowValue': '6','highValue':'6'},
+    {'card': 'diamonds7', 'lowValue': '7','highValue':'7'},
+    {'card': 'diamonds8', 'lowValue': '8','highValue':'8'},
+    {'card': 'diamonds9', 'lowValue': '9','highValue':'9'},
+    {'card': 'diamonds10', 'lowValue': '10','highValue':'10'},
+    {'card': 'diamondsJ', 'lowValue': '0','highValue':'0'},
+    {'card': 'diamondsQ', 'lowValue': '0','highValue':'0'},
+    {'card': 'diamondsK', 'lowValue': '0','highValue':'0'},
+
+    /// Todo Hearts Cards
+    {'card': 'heartsA', 'lowValue': '1','highValue':'11'},
+    {'card': 'hearts2', 'lowValue': '2','highValue':'2'},
+    {'card': 'hearts3', 'lowValue': '3','highValue':'3'},
+    {'card': 'hearts4', 'lowValue': '4','highValue':'4'},
+    {'card': 'hearts5', 'lowValue': '5','highValue':'5'},
+    {'card': 'hearts6', 'lowValue': '6','highValue':'6'},
+    {'card': 'hearts7', 'lowValue': '7','highValue':'7'},
+    {'card': 'hearts8', 'lowValue': '8','highValue':'8'},
+    {'card': 'hearts9', 'lowValue': '9','highValue':'9'},
+    {'card': 'hearts10', 'lowValue': '10','highValue':'10'},
+    {'card': 'heartsJ', 'lowValue': '0','highValue':'0'},
+    {'card': 'heartsQ', 'lowValue': '0','highValue':'0'},
+    {'card': 'heartsK', 'lowValue': '0','highValue':'0'},
+
+
   ];
 
   List<Map<String, dynamic>> firstList = [];
@@ -86,19 +135,6 @@ class CardScreenController extends GetxController {
   void increment() => count.value++;
 
   void getRandomCardValues(){
-    // int randomIndex = random.nextInt(listOfCardsAndValues.length);
-    //
-    // Map<String, dynamic> randomMap = listOfCardsAndValues[randomIndex];
-    // String cardValue = randomMap["card"]!;
-    // String loValue = randomMap["lowValue"]!;
-    // String hiValue = randomMap["highValue"]!;
-    //
-    // // Print the randomly selected map's values
-    // print("Randomly selected card: $cardValue");
-    // print("Lo value: $loValue");
-    // print("Hi value: $hiValue");
-
-
 
     Random random = Random();
     List<Map<String, dynamic>> tempList = List.from(listOfCardsAndValues);

@@ -7,20 +7,18 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shimmer/shimmer.dart';
 
 class Cw {
-
-
   static Widget commonBgView({required Widget widget}) => Stack(
-    alignment: Alignment.center,
-    children: [
-      Image.asset(
-        ImagePathConst.scaffoldBackgroundImg,
-        height: double.infinity,
-        width: double.infinity,
-        fit: BoxFit.fill,
-      ),
-      widget
-    ],
-  );
+        alignment: Alignment.center,
+        children: [
+          Image.asset(
+            ImagePathConst.scaffoldBackgroundImg,
+            height: double.infinity,
+            width: double.infinity,
+            fit: BoxFit.fill,
+          ),
+          widget
+        ],
+      );
 
   /* --------------------------Buttons View--------------------------*/
   static Widget commonElevatedButton(
@@ -47,17 +45,16 @@ class Cw {
       height: height ?? 80.px,
       width: width ?? 302.px,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius ??  40.px),
-        image: DecorationImage(
-          image: AssetImage(
-            buttonBgPath == ''
-              ? isRedBgImg
-              ? ImagePathConst.rButtonBgImg
-              : ImagePathConst.yButtonBgImg
-              : buttonBgPath,
-          ),
-        )
-      ),
+          borderRadius: BorderRadius.circular(borderRadius ?? 40.px),
+          image: DecorationImage(
+            image: AssetImage(
+              buttonBgPath == ''
+                  ? isRedBgImg
+                      ? ImagePathConst.rButtonBgImg
+                      : ImagePathConst.yButtonBgImg
+                  : buttonBgPath,
+            ),
+          )),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
@@ -86,7 +83,11 @@ class Cw {
             : child ??
                 Text(
                   buttonText ?? '',
-                  style: Theme.of(Get.context!).textTheme.displayLarge?.copyWith(fontSize: fontSize ?? 26.px, color: buttonTextColor),
+                  style: Theme.of(Get.context!)
+                      .textTheme
+                      .displayLarge
+                      ?.copyWith(
+                          fontSize: fontSize ?? 26.px, color: buttonTextColor),
                 ),
       ),
     );
@@ -119,7 +120,10 @@ class Cw {
             ),
             Text(
               progressTextValue ?? '',
-              style: Theme.of(Get.context!).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(Get.context!)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.bold),
             )
           ],
         ),
@@ -160,21 +164,21 @@ class Cw {
             : inputFormatters,
         onChanged: keyboardType == TextInputType.number
             ? onChanged ?? (value) {}
-            : onChanged ?? (value) {
-          value = value.trim();
-          if (value.isEmpty || value.replaceAll(" ", "").isEmpty) {
-            controller?.text = "";
-          }
-        },
+            : onChanged ??
+                (value) {
+                  value = value.trim();
+                  if (value.isEmpty || value.replaceAll(" ", "").isEmpty) {
+                    controller?.text = "";
+                  }
+                },
         keyboardType: keyboardType,
         validator: validator,
         readOnly: readOnly,
         controller: controller,
         style: Theme.of(Get.context!).textTheme.bodyMedium?.copyWith(
-          fontWeight: FontWeight.w700,
-          fontSize: 28.px,
-          color: LightThemeColor().whiteColor
-        ),
+            fontWeight: FontWeight.w700,
+            fontSize: 28.px,
+            color: LightThemeColor().whiteColor),
         maxLength: maxLength,
         autofocus: autofocus,
         obscuringCharacter: hideTextCharacter ?? '•',
@@ -185,28 +189,28 @@ class Cw {
           hintText: hintText,
           labelText: title,
           labelStyle: Theme.of(Get.context!).textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.w400,
-            color: LightThemeColor().darkGreyColor,
-          ),
+                fontWeight: FontWeight.w400,
+                color: LightThemeColor().darkGreyColor,
+              ),
           fillColor: LightThemeColor().blackColor.withOpacity(.2),
           filled: filled,
-          contentPadding: contentPadding ?? EdgeInsets.symmetric(horizontal: 30.px,vertical: 16.px),
+          contentPadding: contentPadding ??
+              EdgeInsets.symmetric(horizontal: 30.px, vertical: 16.px),
           hintStyle: Theme.of(Get.context!).textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.w400,
-            color: LightThemeColor().darkGreyColor,
-            fontSize: 28.px
-          ),
+              fontWeight: FontWeight.w400,
+              color: LightThemeColor().darkGreyColor,
+              fontSize: 28.px),
           suffixIcon: suffixIcon != null
               ? Padding(
-            padding: suffixPadding ?? EdgeInsets.zero,
-            child: suffixIcon,
-          )
+                  padding: suffixPadding ?? EdgeInsets.zero,
+                  child: suffixIcon,
+                )
               : null,
           prefixIcon: prefixIcon != null
               ? Padding(
-            padding: prefixPadding ?? EdgeInsets.zero,
-            child: prefixIcon,
-          )
+                  padding: prefixPadding ?? EdgeInsets.zero,
+                  child: prefixIcon,
+                )
               : null,
           disabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
@@ -215,8 +219,7 @@ class Cw {
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-                color: LightThemeColor().secondaryColor,
-                width: 2.px),
+                color: LightThemeColor().secondaryColor, width: 2.px),
             borderRadius: BorderRadius.circular(35.px),
           ),
           focusedErrorBorder: OutlineInputBorder(
@@ -226,8 +229,7 @@ class Cw {
           ),
           border: OutlineInputBorder(
             borderSide: BorderSide(
-                color: LightThemeColor().secondaryColor,
-                width: 2.px),
+                color: LightThemeColor().secondaryColor, width: 2.px),
             borderRadius: BorderRadius.circular(35.px),
           ),
           enabledBorder: OutlineInputBorder(
@@ -245,19 +247,18 @@ class Cw {
     );
   }
 
-
-  static Widget appLogoView({double? w,double? h}) => SizedBox(
-    width: w ?? double.infinity,
-    height: h,
-    child: Center(
-      child: Image.asset(
-        ImagePathConst.logoImg,
+  static Widget appLogoView({double? w, double? h}) => SizedBox(
         width: w ?? double.infinity,
         height: h,
-        fit: BoxFit.contain,
-      ),
-    ),
-  );
+        child: Center(
+          child: Image.asset(
+            ImagePathConst.logoImg,
+            width: w ?? double.infinity,
+            height: h,
+            fit: BoxFit.contain,
+          ),
+        ),
+      );
 
   static Widget commonNetworkImageView({
     required String path,
@@ -278,56 +279,57 @@ class Cw {
           borderRadius: BorderRadius.circular(radius ?? 0.px),
           child: isAssetImage
               ? Image.asset(
-            path,
-            height: height,
-            width: width,
-            color: color,
-            fit: fit,
-          )
+                  path,
+                  height: height,
+                  width: width,
+                  color: color,
+                  fit: fit,
+                )
               : Image.network(
-            path,
-            height: height,
-            width: width,
-            color: color,
-            fit: fit,
-            loadingBuilder: loadingBuilder ?? (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
-              if (loadingProgress == null) return child;
-              return Center(
-                child: SizedBox(
-                  height: 16.px,
-                  width: 16.px,
-                  child: Center(
-                    child: commonProgressBarView(
-                      value: loadingProgress.expectedTotalBytes != null
-                          ? loadingProgress.cumulativeBytesLoaded /
-                          loadingProgress.expectedTotalBytes!
-                          : null,
-                    ),
-                  ),
+                  path,
+                  height: height,
+                  width: width,
+                  color: color,
+                  fit: fit,
+                  loadingBuilder: loadingBuilder ??
+                      (BuildContext context, Widget child,
+                          ImageChunkEvent? loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Center(
+                          child: SizedBox(
+                            height: 16.px,
+                            width: 16.px,
+                            child: Center(
+                              child: commonProgressBarView(
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                  errorBuilder: (context, error, stackTrace) {
+                    return Image.asset(
+                      errorImage ?? 'assets/image/default_image.jpg',
+                      height: height,
+                      width: width,
+                      color: color,
+                      fit: fit,
+                    );
+                  },
                 ),
-              );
-            },
-            errorBuilder: (context, error, stackTrace) {
-              return Image.asset(
-                errorImage ?? 'assets/image/default_image.jpg',
-                height: height,
-                width: width,
-                color: color,
-                fit: fit,
-              );
-            },
-          ),
         ),
       );
 
-
-
   static Widget commonDividerView(
-      {Color? color,
-        double? height,
-        double? wight,
-        double? leftPadding,
-        double? rightPadding}) =>
+          {Color? color,
+          double? height,
+          double? wight,
+          double? leftPadding,
+          double? rightPadding}) =>
       Divider(
         color: color ?? LightThemeColor().whiteColor,
         height: height ?? 10.px,
@@ -338,12 +340,12 @@ class Cw {
 
   static Widget commonShimmerViewForImage(
       {double? width,
-        double? height,
-        double? radius,
-        required BuildContext context,
-        Duration? duration,
-        Color? backgroundColor,
-        Color? movementColor}) {
+      double? height,
+      double? radius,
+      required BuildContext context,
+      Duration? duration,
+      Color? backgroundColor,
+      Color? movementColor}) {
     bool isDark = true;
     if (Theme.of(context).brightness == Brightness.light) isDark = false;
     return Shimmer.fromColors(
@@ -352,7 +354,8 @@ class Cw {
           (isDark
               ? Theme.of(context).colorScheme.primary.withOpacity(0.2)
               : Colors.grey.withOpacity(0.2)),
-      highlightColor: movementColor ?? Theme.of(context).colorScheme.surface.withOpacity(0.02),
+      highlightColor: movementColor ??
+          Theme.of(context).colorScheme.surface.withOpacity(0.02),
       enabled: true,
       child: Container(
         width: width,
@@ -361,12 +364,11 @@ class Cw {
           color: isDark
               ? Theme.of(context).primaryColor
               : Theme.of(context)
-              .colorScheme
-              .background, //without this color shimmer not work
+                  .colorScheme
+                  .background, //without this color shimmer not work
           borderRadius: BorderRadius.circular(radius ?? 5.px),
         ),
       ),
     );
   }
-
 }

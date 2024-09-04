@@ -21,8 +21,6 @@ List cardTitleData = [
   'Poker\nBonus',
 ];
 
-
-
 class PlayerWinsAllTiesController extends GetxController {
 
   final count = 0.obs;

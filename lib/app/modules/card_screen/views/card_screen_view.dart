@@ -137,15 +137,21 @@ class CardScreenView extends GetView<CardScreenController> {
     height: height ?? 70.px,
     width: width ?? 55.px,
     decoration: BoxDecoration(
-      color: LightThemeColor().whiteColor,
+      // color: LightThemeColor().whiteColor,
       borderRadius: BorderRadius.circular(5.px)
     ),
     child: Center(
-      child: Text(
-        text,
-        style: Theme.of(Get.context!).textTheme.headlineLarge?.copyWith(
-          color: LightThemeColor().blackColor
-        ),
+      // child: Text(
+      //   text,
+      //   style: Theme.of(Get.context!).textTheme.headlineLarge?.copyWith(
+      //     color: LightThemeColor().blackColor
+      //   ),
+      // ),
+      child: Cw.commonNetworkImageView(
+        path: 'assets/all_cards/$text.png',
+        height: height ?? 70.px,
+        width: width ?? 55.px,
+        radius: 5.px
       ),
     ),
   );
@@ -428,7 +434,6 @@ class CardScreenView extends GetView<CardScreenController> {
 
 /// TODO Second code
 
-
 //    Obx(
 //                     () {
 //                     controller.count.value;
@@ -496,12 +501,10 @@ class CardScreenView extends GetView<CardScreenController> {
 //                   },
 //                 ),
 
-
-
-
 /// TODO First code
 
 ///TODO old code
+
 // void onCardTap({required int index})  {
 //   isCardSet[index] = true;
 //   if (isCardSet[0] && isCardSet[1] && isCardSet[2]) {
