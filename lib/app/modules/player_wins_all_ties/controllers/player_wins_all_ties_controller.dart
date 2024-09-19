@@ -10,8 +10,8 @@ final walletCoinValue = 1000.obs;
 final totalCoinValue = 0.obs;
 
 List<int> cardData = [
-  5,
-  25,
+  0,
+  0,
   0
 ];
 
@@ -45,7 +45,7 @@ class PlayerWinsAllTiesController extends GetxController {
     super.onInit();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       walletCoinValue.value = 1000;
-      cardData = [5, 25, 0];
+      cardData = [0, 0, 0];
       totalCoinValue.value = cardData.fold(0, (sum, item) => sum + item);
       if (walletCoinValue.value >= totalCoinValue.value) {
         walletCoinValue.value = walletCoinValue.value - totalCoinValue.value;

@@ -27,7 +27,7 @@ void main() {
           builder: (buildContext, orientation, screenType) => GestureDetector(
             onTap: () => Cm.unFocsKeyBoard(),
             child: GetMaterialApp(
-              title: "Application",
+              title: "Hi Matchem Lo Card Game",
               initialRoute: AppPages.INITIAL,
               getPages: AppPages.routes,
               theme: AppThemeData.kNPThemeData(fontFamily: ConstVar.fugazOneFontFamily),

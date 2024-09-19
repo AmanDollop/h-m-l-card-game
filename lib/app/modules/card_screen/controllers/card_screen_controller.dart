@@ -37,8 +37,6 @@ class CardScreenController extends GetxController {
     'assets/cards_img/c6.png',
   ];
 
-
-
   final isHighCardSelected = ''.obs;
 
   Random random = Random();
@@ -111,6 +109,9 @@ class CardScreenController extends GetxController {
   List<Map<String, dynamic>> firstList = [];
   List<Map<String, dynamic>> secondList = [];
 
+  final lowValue = 0.obs;
+  final highValue = 0.obs;
+
   final dealerValue = 0.obs;
   final userValue = 0.obs;
 
@@ -156,7 +157,13 @@ class CardScreenController extends GetxController {
     print('First List: $firstList');
     print('Second List: $secondList');
 
+    for (var card in secondList) {
+      lowValue.value += int.parse(card['lowValue']);
+      highValue.value += int.parse(card['highValue']);
+    }
 
+    print('Low total: ${lowValue.value}');
+    print('High total: ${highValue.value}');
   }
 
   void onCardTap({required int index})  {
@@ -208,7 +215,7 @@ class CardScreenController extends GetxController {
               children: <Widget>[
                 Text(
                   'Place holder text that says stuff like you won !! an includes Pay tables and win details.',
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 SizedBox(height: 20.px),
                 SizedBox(
@@ -238,7 +245,7 @@ class CardScreenController extends GetxController {
                               children: [
                                 Text(
                                   cardTitleData[index] ?? '',
-                                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                     color: LightThemeColor().secondaryColor,
                                     letterSpacing: 0,
                                     height: -1,
@@ -257,7 +264,7 @@ class CardScreenController extends GetxController {
                                       userWinOrNotValue.value
                                           ? '+ ${cardData[index]}'
                                           : '- ${cardData[index]}',
-                                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                         color: userWinOrNotValue.value
                                             ? LightThemeColor().success
                                             : LightThemeColor().error

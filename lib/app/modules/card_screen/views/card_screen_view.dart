@@ -53,12 +53,19 @@ class CardScreenView extends GetView<CardScreenController> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               InkWell(
-                                onTap: () => controller.clickOnHighCard(text:'High'),
-                                child: buildBetOption(label: 'High', value: 8),
+                                onTap: () => controller.clickOnLowCard(text: 'Low'),
+                                child: buildBetOption(
+                                  label: 'Low',
+                                  value: controller.lowValue.value,
+                                  isRedCardValue: true,
+                                ),
                               ),
                               InkWell(
-                                onTap: () => controller.clickOnLowCard(text: 'Low'),
-                                child: buildBetOption(label: 'Low', value: 8, isRedCardValue: true),
+                                onTap: () => controller.clickOnHighCard(text:'High'),
+                                child: buildBetOption(
+                                  label: 'High',
+                                  value: controller.highValue.value,
+                                ),
                               ),
                             ],
                           ),
@@ -72,17 +79,17 @@ class CardScreenView extends GetView<CardScreenController> {
                               duration: const Duration(seconds: 1),
                               curve: Curves.easeInOut,
                               left:  controller.isHighCardSelected.value == 'High'
-                                  ? 27.w + controller.cardOffsets[i].dx
-                                  : controller.isHighCardSelected.value == 'Low'
                                   ? 48.w + controller.cardOffsets[i].dx
+                                  : controller.isHighCardSelected.value == 'Low'
+                                  ? 27.w + controller.cardOffsets[i].dx
                                   : i != 0
-                                  ? i * 70.px + 19.w
-                                  : 19.w,
+                                  ? i * 70.px + 20.w
+                                  : 20.w,
                               top: controller.isHighCardSelected.value == 'High'
                                   ? 2 + controller.cardOffsets[i].dy
                                   : controller.isHighCardSelected.value == 'Low'
                                   ? 2 + controller.cardOffsets[i].dy
-                                  : 13.h,
+                                  : 12.h,
                               child: GestureDetector(
                                 // onTap: () => !controller.isCardSet[i]
                                 //     ? controller.onCardTap(index: i)
@@ -110,7 +117,7 @@ class CardScreenView extends GetView<CardScreenController> {
                     );
                   },
                 ),
-                // SizedBox(height: 10.px),
+                //SizedBox(height: 6.px),
                 Center(
                   child: Text(
                     'Player Wins All Ties',
@@ -241,7 +248,7 @@ class CardScreenView extends GetView<CardScreenController> {
                  Container(
                   height: 10.px,
                   width: 3.px,
-                  decoration: BoxDecoration(
+                    decoration: BoxDecoration(
                    color: LightThemeColor().whiteColor,
                     borderRadius: BorderRadius.only(
                      topRight: Radius.circular(2.px),
@@ -252,14 +259,14 @@ class CardScreenView extends GetView<CardScreenController> {
                   controller.topCardValue.value
                     ? commonContainerViewForCard(text: controller.firstList[index]['card'])
                     : Cw.commonNetworkImageView(
-                     path: controller.topCardValue.value
-                       ? controller.topCardList[index]
-                       : 'assets/cards_img/c_bg_img.png',
-                       // Replace with your card back asset
-                       height: 70.px,
-                       width: 55.px,
+                       path: controller.topCardValue.value
+                        ? controller.topCardList[index]
+                        : 'assets/cards_img/c_bg_img.png',
+                        // Replace with your card back asset
+                        height: 70.px,
+                        width: 55.px,
                      ),
-                    Container(
+                      Container(
                       height: 10.px,
                       width: 3.px,
                       decoration: BoxDecoration(
@@ -273,7 +280,7 @@ class CardScreenView extends GetView<CardScreenController> {
                   ],
                 ),
               )
-            :  controller.topCardValue.value
+            : controller.topCardValue.value
             ? Padding(
               padding:  EdgeInsets.only(
                 right: index == 0 ?10.px:0.px,

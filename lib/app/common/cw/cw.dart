@@ -284,6 +284,7 @@ class Cw {
                   width: width,
                   color: color,
                   fit: fit,
+                  filterQuality: FilterQuality.low,
                 )
               : Image.network(
                   path,
@@ -291,9 +292,8 @@ class Cw {
                   width: width,
                   color: color,
                   fit: fit,
-                  loadingBuilder: loadingBuilder ??
-                      (BuildContext context, Widget child,
-                          ImageChunkEvent? loadingProgress) {
+                  filterQuality: FilterQuality.medium,
+                  loadingBuilder: loadingBuilder ?? (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
                         if (loadingProgress == null) return child;
                         return Center(
                           child: SizedBox(
